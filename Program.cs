@@ -1,4 +1,4 @@
-﻿/* Лабораторная2. Упражнение 4 */
+/* Лабораторная2. Упражнение 4 */
 
 /* 
 Требуется создать класс Operation, в котором необходимо определить: 
@@ -27,13 +27,6 @@ public static class Operation
         return Math.Sqrt(p * (p - a) * (p - b) * (p - c)); // Рассчет площади и возврат
     }
 
-    // Метод проверки, что это треугольник
-    private static bool IsTriangle(double a, double b, double c)
-    {
-        // Проверяем, что введено положительное число и сумма длин любых двух сторон больше длины третьей стороны
-        return (a + b > c) && (a + c > b) && (b + c > a) && (a > 0) && (b > 0) && (c > 0);
-    }
-
     // Метод рассчета площади равностороннего треугольника
     public static double CalculateArea(double a)
     {
@@ -42,6 +35,15 @@ public static class Operation
 
         return (Math.Sqrt(3) / 4) * a * a;
     }
+
+    // Метод проверки, что это треугольник
+    private static bool IsTriangle(double a, double b, double c)
+    {
+        // Проверяем, что введено положительное число и сумма длин любых двух сторон больше длины третьей стороны
+        return (a + b > c) && (a + c > b) && (b + c > a) && (a > 0) && (b > 0) && (c > 0);
+    }
+
+    
 }
 
 class Program
@@ -49,7 +51,7 @@ class Program
     static void Main()
     {
         bool cheked = false;
-
+        ф
         while (!cheked) // Цикл для повторного ввода
         {
             try
@@ -57,7 +59,8 @@ class Program
                 Console.WriteLine("Enter type of triangle (equilateral (e) or NOT equilateral (n)):");
                 string str = Console.ReadLine();
 
-                if (str == "e" || str == "E") //проверка ввода E
+                //проверка ввода E
+                if (str == "e" || str == "E") 
                 {
                     Console.WriteLine("Enter side:"); // приглашение к вводу
                     double a = double.Parse(Console.ReadLine()); // инициализируем а
@@ -73,7 +76,8 @@ class Program
                         cheked = true;
                     }
                 }
-                else if (str == "n" || str == "N") //проверка ввода N
+                //проверка ввода N
+                else if (str == "n" || str == "N") 
                 {
                     Console.WriteLine("Enter side a:"); // приглашение к вводу
                     double a = double.Parse(Console.ReadLine()); // инициализируем а
@@ -96,6 +100,7 @@ class Program
                         cheked = true;
                     }
                 }
+                // Если введено не то и не другое....
                 else
                 {
                     Console.WriteLine("You must enter \"e\" or \"n\"");
